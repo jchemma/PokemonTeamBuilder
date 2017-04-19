@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package util;
+
+import java.sql.Connection;
 
 /**
  *
  * @author chemm
  */
-public class Controller {
+public class DBUtil {
+    private DBUtil(){
+        
+    }
     
-    //add
-    
-    //delete
-    
-    
-    
+    public static Connection getConnection() throws ClassNotFoundException, SQLEception {
+        
+    }
 }
