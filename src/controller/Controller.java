@@ -7,8 +7,11 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
@@ -65,13 +68,19 @@ public class Controller implements Initializable {
     private Label pokemon_6_type1;
     @FXML
     private Label pokemon_6_type2;
+    @FXML
+    private Button clear_button;
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
+        clear_button.setOnAction((ActionEvent event) -> {
+            
+        });
+    }
     
 }

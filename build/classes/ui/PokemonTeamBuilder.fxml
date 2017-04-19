@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <center>
       <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
@@ -28,70 +28,70 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pokemon_1" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label id="pokemon_1_name" text="Unown">
+                  <Label id="pokemon_1_name" fx:id="pokemon_1_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label id="pokemon_1_type_1" layoutY="20.0" text="Psychic" />
-                  <Label id="pokemon_1_type_2" layoutY="35.0" />
+                  <Label id="pokemon_1_type_1" fx:id="pokemon_1_type1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_1_type_2" fx:id="pokemon_1_type1" layoutY="35.0" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pokemon_2" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label id="pokemon_2_name" text="Unown">
+                  <Label id="pokemon_2_name" fx:id="pokemon_2_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label id="pokemon_2_type_1" layoutY="20.0" text="Psychic" />
-                  <Label id="pokemon_2_type_2" layoutY="35.0" />
+                  <Label id="pokemon_2_type_1" fx:id="pokemon_2_type1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_2_type_2" fx:id="pokemon_2_type2" layoutY="35.0" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pokemon_3" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label id="pokemon_3_name" text="Unown">
+                  <Label id="pokemon_3_name" fx:id="pokemon_3_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label id="pokemon_3_type_1" layoutY="20.0" text="Psychic" />
-                  <Label id="pokemon_3_type_2" layoutY="35.0" />
+                  <Label id="pokemon_3_type_1" fx:id="pokemon_3_type1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_3_type_2" fx:id="pokemon_3_type2" layoutY="35.0" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pokemon_4" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label id="pokemon_4_name" text="Unown">
+                  <Label id="pokemon_4_name" fx:id="pokemon_4_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label id="pokemon_4_type_1" layoutY="20.0" text="Psychic" />
-                  <Label id="pokemon_4_type_2" layoutY="35.0" />
+                  <Label id="pokemon_4_type_1" fx:id="pokemon_4_type1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_4_type_2" fx:id="pokemon_4_type2" layoutY="35.0" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pokemon_5" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label id="pokemon_5_name" text="Unown">
+                  <Label id="pokemon_5_name" fx:id="pokemon_5_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label id="pokemon_5_type_1" layoutY="20.0" text="Psychic" />
-                  <Label id="pokemon_5_type_2" layoutY="35.0" />
+                  <Label id="pokemon_5_type_1" fx:id="pokemon_5_type1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_5_type_2" fx:id="pokemon_5_type2" layoutY="35.0" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pokemon_6" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label id="pokemon_6_name" text="Unown">
+                  <Label id="pokemon_6_name" fx:id="pokemon_6_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label id="pokemon_6_type_1" layoutY="20.0" text="Psychic" />
-                  <Label id="pokemon_6_type_2" layoutY="35.0" />
+                  <Label id="pokemon_6_type_1" fx:id="pokemon_6_type1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_6_type_2" fx:id="pokemon_6_type2" layoutY="35.0" />
                </children>
             </Pane>
          </children>
@@ -100,7 +100,7 @@
    <top>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button id="clear_button" alignment="TOP_CENTER" mnemonicParsing="false" text="Clear" textAlignment="CENTER" />
+          <Button id="clear_button" fx:id="clear_button" alignment="TOP_CENTER" mnemonicParsing="false" text="Clear" textAlignment="CENTER" />
         </buttons>
       </ButtonBar>
    </top>
