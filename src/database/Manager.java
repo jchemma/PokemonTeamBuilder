@@ -40,10 +40,13 @@ public class Manager {
             connection.close();
             return team;
     }
+    
+    public static void clearTeam(int id){
+        
+    }
     //add pokemon to the team
      
     //take pokemon from team
-    
     
     
 }

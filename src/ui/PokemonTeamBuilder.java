@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -33,7 +35,11 @@ public class PokemonTeamBuilder extends Application {
         try{
             BorderPane borderPane = (BorderPane) FXMLLoader.load(PokemonTeamBuilder.class.getResource("PokemonTeamBuilder.fxml"));
             Scene scene  = new Scene(borderPane);
-            primaryStage.setFullScreen(true);
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            primaryStage.setX(primaryScreenBounds.getMinX());
+            primaryStage.setY(primaryScreenBounds.getMinY());
+            primaryStage.setWidth(primaryScreenBounds.getWidth());
+            primaryStage.setHeight(primaryScreenBounds.getHeight());
             primaryStage.setScene(scene);
             primaryStage.setTitle("Pokemon Team Builder");
             primaryStage.show();
