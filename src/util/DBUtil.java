@@ -19,11 +19,11 @@ public class DBUtil {
     }
     
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("org.mysql.JDBC");
+        Class.forName("com.mysql.jdbc.Driver");
         Connection connection = null;
         
         String projectDirectory = System.getProperty("user.dir");
-        connection = DriverManager.getConnection("jdbc:mysql: " + projectDirectory +"/pokemon_team_builder","","");
+        connection = DriverManager.getConnection("jdbc:mysql: " + projectDirectory +"/pokemon_team_builder","root","Luminis1992");
         return connection;
     }
 }

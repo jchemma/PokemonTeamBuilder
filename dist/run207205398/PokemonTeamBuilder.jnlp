@@ -8,8 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="PokemonTeamBuilder.jar" size="8175" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.41-bin.jar" size="992808" download="eager" />
+    <jar href="PokemonTeamBuilder.jar" size="8144" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="PokemonTeamBuilder" >
     <param name="requiredFXVersion" value="8.0+"/>
