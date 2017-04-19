@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -34,68 +33,68 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label text="Pikachu">
+                  <Label id="pokemon_1_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutY="20.0" text="Electric" />
-                  <Label layoutY="35.0" />
+                  <Label id="pokemon_1_type_1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_1_type_2" layoutY="35.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label text="Bulbasaur">
+                  <Label id="pokemon_2_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutY="20.0" text="Poison" />
-                  <Label layoutY="35.0" text="Grass" />
+                  <Label id="pokemon_2_type_1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_2_type_2" layoutY="35.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label text="Charmeleon">
+                  <Label id="pokemon_3_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutY="20.0" text="Fire" />
-                  <Label layoutY="35.0" />
+                  <Label id="pokemon_3_type_1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_3_type_2" layoutY="35.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label text="Blaziken">
+                  <Label id="pokemon_4_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutY="20.0" text="Fire" />
-                  <Label layoutY="35.0" text="Fighting" />
+                  <Label id="pokemon_4_type_1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_4_type_2" layoutY="35.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label text="Vigoroth">
+                  <Label id="pokemon_5_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutY="20.0" text="Normal" />
-                  <Label layoutY="35.0" />
+                  <Label id="pokemon_5_type_1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_5_type_2" layoutY="35.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label text="Slaking">
+                  <Label id="pokemon_6_name" text="Unown">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutY="20.0" text="Normal" />
-                  <Label layoutY="35.0" />
+                  <Label id="pokemon_6_type_1" layoutY="20.0" text="Psychic" />
+                  <Label id="pokemon_6_type_2" layoutY="35.0" />
                </children>
             </Pane>
          </children>
@@ -104,7 +103,7 @@
    <top>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Clear" textAlignment="CENTER" />
+          <Button id="clear_button" alignment="TOP_CENTER" mnemonicParsing="false" text="Clear" textAlignment="CENTER" />
         </buttons>
       </ButtonBar>
    </top>
