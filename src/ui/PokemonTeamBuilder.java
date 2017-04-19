@@ -5,11 +5,20 @@
  */
 package ui;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -21,7 +30,16 @@ public class PokemonTeamBuilder extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        
+        try{
+            BorderPane borderPane = (BorderPane) FXMLLoader.load(PokemonTeamBuilder.class.getResource("PokemonTeamBuilder.fxml"));
+            Scene scene  = new Scene(borderPane);
+            primaryStage.setFullScreen(true);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Pokemon Team Builder");
+            primaryStage.show();
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+        }
     }
 
     /**
