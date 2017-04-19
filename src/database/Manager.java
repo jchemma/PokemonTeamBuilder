@@ -18,10 +18,10 @@ import util.DBUtil;
 public class Manager {
 
     //get team
-    
+
     public static List<Pokemon> getTeam (String team_id)throws SQLException, ClassNotFoundException {
         List<Pokemon> team = new ArrayList<>();
-        Statement stmt = null;
+         Statement stmt = null;
         Connection connection = DBUtil.getConnection();
         stmt = connection.createStatement();
         String sql = "SELECT pokemon.name AS Pokemon, types.name AS Type, abilities.name as Ability\n" +
@@ -35,13 +35,12 @@ public class Manager {
 		pokemon.setName(rs.getString("Pokemon"));
 		pokemon.setType1(rs.getString("Type"));
 		team.add(pokemon);
-                System.out.println(pokemon.getName() +" "+ pokemon.getType1());
             }
             connection.close();
             return team;
     }
     //add pokemon to the team
-     
+     private static final String SQL_INSERT = "INSERT INTO `pokemon_team_builder`.`teams` (`id`, `name`, `slot_1`, `slot_2`, `slot_3`, `slot_4`, `slot_5`, `slot_6`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')";
     //take pokemon from team
     
     
