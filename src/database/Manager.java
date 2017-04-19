@@ -8,6 +8,8 @@ package database;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Pokemon;
 import util.DBUtil;
 
@@ -20,7 +22,19 @@ public class Manager {
     //get team
 
     public static List<Pokemon> getTeam (String team_id)throws SQLException, ClassNotFoundException {
-        List<Pokemon> team = new ArrayList<>();
+       return new ArrayList<>();
+    }
+    
+    public static void clearTeam(int id){
+        
+    }
+    //add pokemon to the team
+     private static final String SQL_INSERT = "INSERT INTO `pokemon_team_builder`.`teams` (`id`, `name`, `slot_1`, `slot_2`, `slot_3`, `slot_4`, `slot_5`, `slot_6`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')";
+    //take pokemon from team
+     
+     //get all pokemon from database
+     public static ObservableList<Pokemon> getDatabase() throws SQLException, ClassNotFoundException{
+        ObservableList<Pokemon> database = FXCollections.observableArrayList();
          Statement stmt = null;
         Connection connection = DBUtil.getConnection();
         stmt = connection.createStatement();
@@ -33,19 +47,13 @@ public class Manager {
             while (rs.next()) {
 		Pokemon pokemon = new Pokemon();
 		pokemon.setName(rs.getString("Pokemon"));
-		pokemon.setType1(rs.getString("Type"));
-		team.add(pokemon);
+                pokemon.setType1(rs.getString("Type"));
+                pokemon.setAbility(rs.getString("Ability"));
+		database.add(pokemon);
             }
             connection.close();
-            return team;
+            return database;
     }
-    
-    public static void clearTeam(int id){
-        
-    }
-    //add pokemon to the team
-     private static final String SQL_INSERT = "INSERT INTO `pokemon_team_builder`.`teams` (`id`, `name`, `slot_1`, `slot_2`, `slot_3`, `slot_4`, `slot_5`, `slot_6`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')";
-    //take pokemon from team
     
     
 }
