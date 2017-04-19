@@ -6,6 +6,7 @@
 package util;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,7 +17,7 @@ public class DBUtil {
         
     }
     
-    public static Connection getConnection() throws ClassNotFoundException, SQLEception {
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
         
     }
 }
