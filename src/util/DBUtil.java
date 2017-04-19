@@ -6,6 +6,7 @@
 package util;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
@@ -18,6 +19,11 @@ public class DBUtil {
     }
     
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("org.mysql.JDBC");
+        Connection connection = null;
         
+        String projectDirectory = System.getProperty("user.dir");
+        connection = DriverManager.getConnection("jdbc:mysql: " + projectDirectory +"/pokemon_team_builder","","");
+        return connection;
     }
 }
