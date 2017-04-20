@@ -89,6 +89,8 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
           <Button id="clear_button" fx:id="clear_button" alignment="TOP_CENTER" mnemonicParsing="false" text="Clear" textAlignment="CENTER" />
+            <Button fx:id="save" mnemonicParsing="false" text="Save" />
+            <Button fx:id="get_team" mnemonicParsing="false" text="Get Team" />
         </buttons>
       </ButtonBar>
    </top>

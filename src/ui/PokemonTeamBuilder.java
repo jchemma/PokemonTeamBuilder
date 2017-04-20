@@ -54,6 +54,5 @@ public class PokemonTeamBuilder extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-    }
-    
+    }   
 }

@@ -11,6 +11,7 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Pokemon;
+import model.Team;
 import util.DBUtil;
 
 /**
@@ -21,10 +22,21 @@ public class Manager {
 
     //get team
     
-    public static List<Pokemon> getTeam (int team_id)throws SQLException, ClassNotFoundException {
-        List<Pokemon> team = new ArrayList<>();
-       return new ArrayList<>();
+    public static Team getTeam (int team_id)throws SQLException, ClassNotFoundException {
+        List<Pokemon> teamList = new ArrayList<>();
+       Team team = new Team(teamList);
+       team.setTeamID(1);
+       return team;
        
+    }
+    
+    public static void saveTeam(int team_id, List<Pokemon> team) throws ClassNotFoundException, SQLException{
+        Connection connection = DBUtil.getConnection();
+        Statement stmt = connection.createStatement();
+        String sql;
+        //sql = "INSERT INTO `pokemon_team_builder`.`teams` (`id`, `name`, `slot_1`, `slot_2`, `slot_3`, `slot_4`, `slot_5`, `slot_6`) VALUES ('"+team_id+"', 'Jim Team, "+team.get(0).getID()+", "+team.get(1).getID()+", '"+team.get(2).getID()+"', '"+team.get(3).getID()+"', '"+team.get(4).getID()+"', '"+team.get(5).getID()+"');";
+        sql = "INSERT INTO `pokemon_team_builder`.`teams` (`id`, `name`, `slot_1`, `slot_2`, `slot_3`, `slot_4`, `slot_5`, `slot_6`) VALUES ('0', 'Jim', '"+team.get(0).getID()+"', '"+team.get(1).getID()+"', '"+team.get(2).getID()+"', '"+team.get(3).getID()+"', '"+team.get(4).getID()+"', '"+team.get(5).getID()+"');";
+        stmt.executeUpdate(sql);
     }
     
     public static void clearTeam(int team_id) throws SQLException, ClassNotFoundException{
@@ -71,6 +83,10 @@ public class Manager {
             }
             connection.close();
             return database;
+    }
+
+    public static int getTeamID() {
+        return 1;
     }
     
     

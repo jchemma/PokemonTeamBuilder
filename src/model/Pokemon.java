@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Pokemon {
     
+    private SimpleIntegerProperty id;
     private SimpleStringProperty name;
     private SimpleStringProperty ability;
     private SimpleStringProperty type1;
@@ -26,6 +27,7 @@ public class Pokemon {
     private SimpleIntegerProperty specialDefense;
     
     public Pokemon(){
+        this.id = new SimpleIntegerProperty(201);
         this.name = new SimpleStringProperty("Unown");
         this.ability = new SimpleStringProperty("Levitate");
         this.type1 = new SimpleStringProperty("Psychic");
@@ -38,7 +40,8 @@ public class Pokemon {
         this.specialDefense = new SimpleIntegerProperty(0);
     }
     
-    public Pokemon(String name,String ability, String type1, String type2, int hp, int speed, int attack, int defense, int specialAttack, int specialDefense){
+    public Pokemon(int id, String name,String ability, String type1, String type2, int hp, int speed, int attack, int defense, int specialAttack, int specialDefense){
+        this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.ability = new SimpleStringProperty(ability);
         this.type1 = new SimpleStringProperty(type1);
@@ -49,6 +52,18 @@ public class Pokemon {
         this.defense = new SimpleIntegerProperty(defense);
         this.specialAttack = new SimpleIntegerProperty(specialAttack);
         this.specialDefense = new SimpleIntegerProperty(specialDefense);
+    }
+    
+    public int getID(){
+        return this.id.get();
+    }
+    
+    public void setID(int id){
+        this.id.set(id);
+    }
+    
+    public SimpleIntegerProperty idProperty(){
+        return id;
     }
     
     public String getName(){
