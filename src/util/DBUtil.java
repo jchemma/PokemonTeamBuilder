@@ -15,7 +15,7 @@ public class DBUtil {
    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
    static final String DB_URL = "jdbc:mysql://localhost/pokemon_team_builder";
    static final String USER = "root";
-   static final String PASS = "root@localhost";
+   static final String PASS = "Luminis1992";
     private DBUtil(){
         
     }

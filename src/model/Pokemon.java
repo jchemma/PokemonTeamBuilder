@@ -76,11 +76,11 @@ public class Pokemon {
     }
     
     public String getType1(){
-        return name.get();
+        return type1.get();
     }
     
     public void setType1(String type1){
-        this.name.set(type1);
+        this.type1.set(type1);
     }
     
     public SimpleStringProperty type1Property(){
@@ -88,11 +88,11 @@ public class Pokemon {
     }
     
     public String getType2(){
-        return name.get();
+        return type2.get();
     }
     
     public void setType2(String type2){
-        this.name.set(type2);
+        this.type2.set(type2);
     }
     
     public SimpleStringProperty type2Property(){
