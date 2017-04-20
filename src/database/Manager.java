@@ -34,9 +34,21 @@ public class Manager {
         stmt.executeUpdate(sql);
     }
     //add pokemon to the team
-     private static final String SQL_INSERT = "INSERT INTO `pokemon_team_builder`.`teams` (`id`, `name`, `slot_1`, `slot_2`, `slot_3`, `slot_4`, `slot_5`, `slot_6`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')";
+    public static void addToTeam(int pokemon_id, int slot, int team_id) throws SQLException, ClassNotFoundException{
+        Connection connection = DBUtil.getConnection();
+        Statement stmt = connection.createStatement();
+        String sql;
+        sql = "UPDATE `pokemon_team_builder`.`teams` SET `slot_"+slot+"`='"+pokemon_id+"' WHERE `id`='"+team_id+"';";
+        stmt.executeUpdate(sql);
+    }
     //take pokemon from team
-     
+    public static void removeFromTeam(int slot, int team_id) throws SQLException, ClassNotFoundException{
+        Connection connection = DBUtil.getConnection();
+        Statement stmt = connection.createStatement();
+        String sql;
+        sql = "UPDATE `pokemon_team_builder`.`teams` SET `slot_"+slot+"`=NULL WHERE `id`='"+team_id+"';";
+        stmt.executeUpdate(sql);
+    }
      //get all pokemon from database
      public static ObservableList<Pokemon> getDatabase() throws SQLException, ClassNotFoundException{
         ObservableList<Pokemon> database = FXCollections.observableArrayList();
