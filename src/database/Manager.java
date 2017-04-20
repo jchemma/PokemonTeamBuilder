@@ -20,17 +20,18 @@ import util.DBUtil;
 public class Manager {
 
     //get team
-
+    
     public static List<Pokemon> getTeam (int team_id)throws SQLException, ClassNotFoundException {
+        List<Pokemon> team = new ArrayList<>();
        return new ArrayList<>();
        
     }
     
-    public static void clearTeam(int id) throws SQLException, ClassNotFoundException{
+    public static void clearTeam(int team_id) throws SQLException, ClassNotFoundException{
         Connection connection = DBUtil.getConnection();
         Statement stmt = connection.createStatement();
         String sql;
-        sql = "DELETE FROM `pokemon_team_builder`.`teams` WHERE `id`= id;";
+        sql = "DELETE FROM `pokemon_team_builder`.`teams` WHERE `id`= "+team_id+";";
         stmt.executeUpdate(sql);
     }
     //add pokemon to the team
