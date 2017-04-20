@@ -35,12 +35,7 @@ public class PokemonTeamBuilder extends Application {
     public void start(Stage primaryStage) {
         try{
             BorderPane borderPane = (BorderPane) FXMLLoader.load(PokemonTeamBuilder.class.getResource("PokemonTeamBuilder.fxml"));
-            Scene scene  = new Scene(borderPane);
-            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            primaryStage.setX(primaryScreenBounds.getMinX());
-            primaryStage.setY(primaryScreenBounds.getMinY());
-            primaryStage.setWidth(primaryScreenBounds.getWidth());
-            primaryStage.setHeight(primaryScreenBounds.getHeight());
+            Scene scene  = new Scene(borderPane,1000, 600);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Pokemon Team Builder");
             primaryStage.show();

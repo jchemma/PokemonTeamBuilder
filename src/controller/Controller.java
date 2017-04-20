@@ -106,18 +106,22 @@ public class Controller implements Initializable {
     @FXML
     private TableView<Pokemon> table = new TableView<>();
     
+    private TableColumn idCol = new TableColumn("ID");
     private TableColumn nameCol = new TableColumn("Name");
     private TableColumn abilityCol = new TableColumn("Ability");
     private TableColumn type1Col = new TableColumn("Type");
+    private TableColumn hpCol = new TableColumn("HP");
+    private TableColumn speedCol = new TableColumn("Speed");
+    private TableColumn attackCol = new TableColumn("Attack");
+    private TableColumn defenseCol = new TableColumn("Defense");
+    private TableColumn specialAttackCol = new TableColumn("Special Attack");
+    private TableColumn specialDefenseCol = new TableColumn("Special Defense");
     
     private final String DEFAULT_NAME = "";
     private final String DEFAULT_TYPE1 = "";
     private final String DEFAULT_TYPE2 = "";
     
     private Team team;
-    
-    private Label[] teamName = {pokemon_1_name,pokemon_2_name,pokemon_3_name,pokemon_4_name,pokemon_5_name,pokemon_6_name};
-    private Label[] teamType = {pokemon_1_type1,pokemon_2_type1,pokemon_3_type1,pokemon_4_type1,pokemon_5_type1,pokemon_6_type1};
 
     /**
      * Initializes the controller class.
@@ -128,11 +132,12 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         //sets columns on initialize
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         abilityCol.setCellValueFactory(new PropertyValueFactory<>("ability"));
         type1Col.setCellValueFactory(new PropertyValueFactory<>("type1"));
         
-        table.getColumns().setAll(nameCol,abilityCol,type1Col);
+        table.getColumns().setAll(idCol,nameCol,abilityCol,type1Col,hpCol,speedCol,attackCol,defenseCol,specialAttackCol,specialDefenseCol);
         getDatabase();
         
         try{
@@ -154,17 +159,16 @@ public class Controller implements Initializable {
                         alert.setContentText("Please remove pokemon before adding any more.");
                         alert.showAndWait();
                     }else{
-                        Pokemon pokemon = new Pokemon(p.getID(),p.getName(),p.getAbility(),p.getType1(),p.getType2(),p.getHP(),p.getSpeed(),p.getAttack(),p.getDefense(),p.getSpecialAttack(),p.getSpecialDefense());
                         System.out.println(p.getName());
                         System.out.println(p.getID());
                         int num = team.size();
                         System.out.println(team.size());
                         switch(num){
                             case 0:
-                                team.add(pokemon);
+                                team.add(p);
                                 System.out.println(team.getTeam().get(0).getID());
                                 pokemon_1_name = new Label();
-                                pokemon_1_name.textProperty().bind(pokemon.nameProperty());
+                                pokemon_1_name.textProperty().bind(p.nameProperty());
                                 break;
                             case 1:
                                 team.add(p);
@@ -215,33 +219,38 @@ public class Controller implements Initializable {
         
         clear_button.setOnAction((ActionEvent event) -> {
             //clear pokemon labels
-            pokemon_1_name.setText(DEFAULT_NAME);
-            pokemon_2_name.setText(DEFAULT_NAME);
-            pokemon_3_name.setText(DEFAULT_NAME);
-            pokemon_4_name.setText(DEFAULT_NAME);
-            pokemon_5_name.setText(DEFAULT_NAME);
-            pokemon_6_name.setText(DEFAULT_NAME);
+//            pokemon_1_name.setText(DEFAULT_NAME);
+//            pokemon_2_name.setText(DEFAULT_NAME);
+//            pokemon_3_name.setText(DEFAULT_NAME);
+//            pokemon_4_name.setText(DEFAULT_NAME);
+//            pokemon_5_name.setText(DEFAULT_NAME);
+//            pokemon_6_name.setText(DEFAULT_NAME);
+//            
+//            pokemon_1_type1.setText(DEFAULT_TYPE1);
+//            pokemon_2_type1.setText(DEFAULT_TYPE1);
+//            pokemon_3_type1.setText(DEFAULT_TYPE1);
+//            pokemon_4_type1.setText(DEFAULT_TYPE1);
+//            pokemon_5_type1.setText(DEFAULT_TYPE1);
+//            pokemon_6_type1.setText(DEFAULT_TYPE1);
+//            
+//            pokemon_1_type2.setText(DEFAULT_TYPE2);
+//            pokemon_2_type2.setText(DEFAULT_TYPE2);
+//            pokemon_3_type2.setText(DEFAULT_TYPE2);
+//            pokemon_4_type2.setText(DEFAULT_TYPE2);
+//            pokemon_5_type2.setText(DEFAULT_TYPE2);
+//            pokemon_6_type2.setText(DEFAULT_TYPE2);
             
-            pokemon_1_type1.setText(DEFAULT_TYPE1);
-            pokemon_2_type1.setText(DEFAULT_TYPE1);
-            pokemon_3_type1.setText(DEFAULT_TYPE1);
-            pokemon_4_type1.setText(DEFAULT_TYPE1);
-            pokemon_5_type1.setText(DEFAULT_TYPE1);
-            pokemon_6_type1.setText(DEFAULT_TYPE1);
-            
-            pokemon_1_type2.setText(DEFAULT_TYPE2);
-            pokemon_2_type2.setText(DEFAULT_TYPE2);
-            pokemon_3_type2.setText(DEFAULT_TYPE2);
-            pokemon_4_type2.setText(DEFAULT_TYPE2);
-            pokemon_5_type2.setText(DEFAULT_TYPE2);
-            pokemon_6_type2.setText(DEFAULT_TYPE2);
-            
-            team = new Team();
+            clearTeam(team.getTeamID());
         });
     }
     
     private void clearTeam(int id){
-        
+        try{
+            Manager.clearTeam(id);
+            team = new Team();
+        }catch(SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
     } 
     
     public void getDatabase(){
@@ -252,4 +261,5 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
+    
 }

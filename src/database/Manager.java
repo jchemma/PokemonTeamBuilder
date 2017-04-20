@@ -68,7 +68,7 @@ public class Manager {
          Statement stmt = null;
         Connection connection = DBUtil.getConnection();
         stmt = connection.createStatement();
-        String sql = "SELECT pokemon.name AS Pokemon, t_name AS Type, abilities.name AS Ability\n"
+        String sql = "SELECT pokemon.id AS ID, pokemon.name AS Pokemon, t_name AS Type, abilities.name AS Ability\n"
                 + "FROM ((((pokemon JOIN pokemon_types on pokemon.id = pokemon_types.pokemon_id) JOIN ((SELECT id as t_id, name as t_name FROM types) as t)\n"
                 + "ON type_id= t.t_id) JOIN pokemon_abilities ON pokemon.id = pokemon_abilities.pokemon_id)\n"
                 + "JOIN abilities ON ability_id = abilities.id)\n"
@@ -76,6 +76,7 @@ public class Manager {
         ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
 		Pokemon pokemon = new Pokemon();
+                pokemon.setID(rs.getInt("ID"));
 		pokemon.setName(rs.getString("Pokemon"));
                 pokemon.setType1(rs.getString("Type"));
                 pokemon.setAbility(rs.getString("Ability"));
