@@ -21,12 +21,17 @@ public class Manager {
 
     //get team
 
-    public static List<Pokemon> getTeam (String team_id)throws SQLException, ClassNotFoundException {
+    public static List<Pokemon> getTeam (int team_id)throws SQLException, ClassNotFoundException {
        return new ArrayList<>();
+       
     }
     
-    public static void clearTeam(int id){
-        
+    public static void clearTeam(int id) throws SQLException, ClassNotFoundException{
+        Connection connection = DBUtil.getConnection();
+        Statement stmt = connection.createStatement();
+        String sql;
+        sql = "DELETE FROM `pokemon_team_builder`.`teams` WHERE `id`= id;";
+        stmt.executeUpdate(sql);
     }
     //add pokemon to the team
      private static final String SQL_INSERT = "INSERT INTO `pokemon_team_builder`.`teams` (`id`, `name`, `slot_1`, `slot_2`, `slot_3`, `slot_4`, `slot_5`, `slot_6`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')";

@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -140,12 +142,18 @@ public class Controller implements Initializable {
             pokemon_5_type2.setText(DEFAULT_TYPE2);
             pokemon_6_type2.setText(DEFAULT_TYPE2);
             
-            //clear pokemon team from database
-            clearTeam(1);
+            try {
+                //clear pokemon team from database
+                clearTeam(1);
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
     
-    private void clearTeam(int id){
+    private void clearTeam(int id) throws SQLException, ClassNotFoundException{
         Manager.clearTeam(id);
     } 
     
